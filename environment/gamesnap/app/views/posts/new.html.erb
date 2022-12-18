@@ -1,0 +1,88 @@
+<div class = "a">投稿画面</div>
+
+<% @post.errors.full_messages.each do |message| %>
+    <%= message %>
+<% end %>
+<div class = "form">
+<%= form_tag("/posts/create", {multipart: true}) do %>
+    <h2>タイトル(必須、1文字以上14文字以内)</h2>
+    <div class="ex">
+    例…デバフ特化ネイチャ、逃げウララ、ゲート難ゴルシetc…<br>
+    </div>
+    <div class="horse_title">
+    <textarea name = "title" style="width:600px;height:50px"></textarea><br>
+    </div>
+    
+    <h2>評価(S+～F)(必須)</h2>
+    <select name="score" class="horse-score">
+          <option>S+</option>
+          <option>S</option>
+          <option>A+</option>
+          <option>A</option>
+          <option>B+</option>
+          <option>B</option>
+          <option>C+</option>
+          <option>C</option>
+          <option>D+</option>
+          <option>D</option>
+          <option>E+</option>
+          <option>E</option>
+          <option>F+</option>
+          <option>F</option>
+    </select>
+    
+    <h2>ウマ娘(必須)</h2>
+    <select name="girl" class="horse-select">
+        <option>オグリキャップ</option>
+        <option>カレンチャン</option>
+        <option>サイレンススズカ</option>
+        <option>シンボリルドルフ</option>
+        <option>スペシャルウィーク</option>
+        <option>スマートファルコン</option>
+        <option>タイキシャトル</option>
+        <option>テイエムオペラオー</option>
+        <option>トウカイテイオー</option>
+        <option>新トウカイテイオー</option>
+        <option>ナリタタイシン</option>
+        <option>ナリタブライアン</option>
+        <option>ビワハヤヒデ</option>
+        <option>マルゼンスキー</option>
+        <option>ミホノブルボン</option>
+        <option>メジロマックイーン</option>
+        <option>新メジロマックイーン</option>
+        <option>ライスシャワー</option>
+        <option>花嫁マヤノトップガン</option>
+        <option>花嫁エアグルーヴ</option>
+        <option>セイウンスカイ</option>
+        
+        <option>ウオッカ</option>
+        <option>エアグルーヴ</option>
+        <option>エルコンドルパサー</option>
+        <option>グラスワンダー</option>
+        <option>ゴールドシップ</option>
+        <option>スーパークリーク</option>
+        <option>ダイワスカーレット</option>
+        <option>マヤノトップガン</option>
+        
+        <option>アグネスタキオン</option>
+        <option>ウイニングチケット</option>
+        <option>キングヘイロー</option>
+        <option>サクラバクシンオー</option>
+        <option>ナイスネイチャ</option>
+        <option>ハルウララ</option>
+        <option>マチカネフクキタル</option>
+        <option>メジロライアン</option>
+    </select>
+    
+    <h2>内容(1文字以上140文字以内)</h2>
+    <div class="ex">
+    育成ポイント、注意したポイント、サポカ編成etc…<br>
+    </div>
+    <textarea name = "content" style="width:600px;height:300px"></textarea><br>
+    <h2>評価画面(必須)</h2>
+    <%= file_field_tag(:img) %><br>
+    <div class = submit>
+    <input type = "submit" value = "投稿する" style="width:200px;height:80px">
+    </div>
+<% end %>
+</div>

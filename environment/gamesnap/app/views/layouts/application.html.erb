@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <body>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-F2PQYDKBYG"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-F2PQYDKBYG');
+    </script>
+    <title>HorseFaceBook</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    
+    <header>
+    <div class="head-back">
+    <div class = "top"><%= link_to("HorseFaceBook","/") %></div>
+    <ul class="header-menus">
+      <li><%= link_to("投稿を見る","/posts/index") %></li>
+      <li><%= link_to("ウマ娘一覧","/posts/all") %></li>
+      <%#<li><%= link_to("ログイン", "/auth/twitter") %>
+      
+      <li><%= link_to("新規投稿","/posts/new") %></li>
+      <li><%= link_to("その他","/posts/profile") %></li>
+      <%#<li><%= link_to("いいね一覧","/posts/like") %>
+      <%#<li><%= link_to("ログアウト", "/logout") %>
+    </ul>
+    </div>
+    </header>
+  </head>
+
+    <% if flash[:notice] %>
+    <div class="flash">
+    <%= flash[:notice] %>
+    </div>
+    <% end %>
+    
+    <%= yield %>
+  </body>
+</html>

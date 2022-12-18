@@ -1,0 +1,41 @@
+ <div class = "a">
+   投稿一覧画面
+</div>
+
+
+<% @posts.each do |post| %>
+<div class="post-padding">
+  <div class = "post-all">
+      <div class = "post-title">
+        <%= post.title %><br>
+      </div>
+      <div class = "horse">
+        ウマ娘
+        <div class="girl">
+          <%= link_to(post.girl, "/posts/#{post.girl}") %>
+        </div>
+      </div>
+      <div class = "score">
+        ウマ娘育成ランク
+        <div class="girl_score">
+          <%= post.score %>
+        </div>
+      </div>
+      <div class = "post-content-box">
+        <div class = "post-content" style="overflow:auto;">
+          <%= post.content %><br>
+        </div>
+      </div>
+      <div class = "image">
+       <%= image_tag post.img.url if post.img? %><br>
+      </div>
+  </div>
+</div>
+<% end %>
+<div class="page">
+<%= will_paginate @posts, :previous_label => ' &lt 前へ', :next_label => '次へ &gt' %>
+</div>
+<div class="more">
+もっと見るには
+<%= link_to("こちら", "/posts/all") %>
+</div>
